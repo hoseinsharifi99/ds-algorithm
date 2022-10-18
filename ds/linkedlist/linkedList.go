@@ -82,3 +82,18 @@ func (l *LinkedList) Traverse() (response []interface{}) {
 	}
 	return
 }
+
+func (l *LinkedList) reverse() {
+	curr := l.root
+	var prev *node
+	var next *node
+
+	for curr != nil {
+		next = curr.next
+		curr.next = prev
+		prev = curr
+		curr = next
+	}
+	l.root = prev
+
+}
